@@ -41,12 +41,29 @@
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.openImageFileDialog = new System.Windows.Forms.OpenFileDialog();
+            this.mainGeneratorTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
+            this.settingGroupBox = new System.Windows.Forms.GroupBox();
+            this.qrCodeGeneratorGroupBox = new System.Windows.Forms.GroupBox();
+            this.qrCodePictureTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
+            this.qrCodePictureBox = new System.Windows.Forms.PictureBox();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.qrCodeEmbedText = new System.Windows.Forms.TextBox();
+            this.generateQRCodeBtn = new System.Windows.Forms.Button();
+            this.saveQRCode = new System.Windows.Forms.Button();
+            this.saveImageFileDialog = new System.Windows.Forms.SaveFileDialog();
             this.mainTabControl.SuspendLayout();
             this.stillImageTabPage.SuspendLayout();
+            this.generatorAndSettingTabPage.SuspendLayout();
             this.mainStillImageTableLayoutPanel.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.stillImagePictureBox)).BeginInit();
             this.groupBox1.SuspendLayout();
+            this.mainGeneratorTableLayoutPanel.SuspendLayout();
+            this.qrCodeGeneratorGroupBox.SuspendLayout();
+            this.qrCodePictureTableLayoutPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.qrCodePictureBox)).BeginInit();
+            this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // mainTabControl
@@ -84,6 +101,7 @@
             // 
             // generatorAndSettingTabPage
             // 
+            this.generatorAndSettingTabPage.Controls.Add(this.mainGeneratorTableLayoutPanel);
             this.generatorAndSettingTabPage.Location = new System.Drawing.Point(4, 22);
             this.generatorAndSettingTabPage.Name = "generatorAndSettingTabPage";
             this.generatorAndSettingTabPage.Padding = new System.Windows.Forms.Padding(3);
@@ -183,6 +201,132 @@
     "; *.png\"";
             this.openImageFileDialog.Title = "Select Image File";
             // 
+            // mainGeneratorTableLayoutPanel
+            // 
+            this.mainGeneratorTableLayoutPanel.ColumnCount = 2;
+            this.mainGeneratorTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.mainGeneratorTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.mainGeneratorTableLayoutPanel.Controls.Add(this.settingGroupBox, 0, 0);
+            this.mainGeneratorTableLayoutPanel.Controls.Add(this.qrCodeGeneratorGroupBox, 1, 0);
+            this.mainGeneratorTableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.mainGeneratorTableLayoutPanel.Location = new System.Drawing.Point(3, 3);
+            this.mainGeneratorTableLayoutPanel.Name = "mainGeneratorTableLayoutPanel";
+            this.mainGeneratorTableLayoutPanel.RowCount = 1;
+            this.mainGeneratorTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.mainGeneratorTableLayoutPanel.Size = new System.Drawing.Size(873, 504);
+            this.mainGeneratorTableLayoutPanel.TabIndex = 0;
+            // 
+            // settingGroupBox
+            // 
+            this.settingGroupBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.settingGroupBox.Location = new System.Drawing.Point(3, 3);
+            this.settingGroupBox.Name = "settingGroupBox";
+            this.settingGroupBox.Size = new System.Drawing.Size(430, 498);
+            this.settingGroupBox.TabIndex = 0;
+            this.settingGroupBox.TabStop = false;
+            this.settingGroupBox.Text = "Settings";
+            // 
+            // qrCodeGeneratorGroupBox
+            // 
+            this.qrCodeGeneratorGroupBox.Controls.Add(this.qrCodePictureTableLayoutPanel);
+            this.qrCodeGeneratorGroupBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.qrCodeGeneratorGroupBox.Location = new System.Drawing.Point(439, 3);
+            this.qrCodeGeneratorGroupBox.Name = "qrCodeGeneratorGroupBox";
+            this.qrCodeGeneratorGroupBox.Size = new System.Drawing.Size(431, 498);
+            this.qrCodeGeneratorGroupBox.TabIndex = 1;
+            this.qrCodeGeneratorGroupBox.TabStop = false;
+            this.qrCodeGeneratorGroupBox.Text = "QR Code Generator";
+            // 
+            // qrCodePictureTableLayoutPanel
+            // 
+            this.qrCodePictureTableLayoutPanel.ColumnCount = 1;
+            this.qrCodePictureTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.qrCodePictureTableLayoutPanel.Controls.Add(this.qrCodePictureBox, 0, 0);
+            this.qrCodePictureTableLayoutPanel.Controls.Add(this.tableLayoutPanel1, 0, 1);
+            this.qrCodePictureTableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.qrCodePictureTableLayoutPanel.Location = new System.Drawing.Point(3, 16);
+            this.qrCodePictureTableLayoutPanel.Name = "qrCodePictureTableLayoutPanel";
+            this.qrCodePictureTableLayoutPanel.RowCount = 2;
+            this.qrCodePictureTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 80F));
+            this.qrCodePictureTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.qrCodePictureTableLayoutPanel.Size = new System.Drawing.Size(425, 479);
+            this.qrCodePictureTableLayoutPanel.TabIndex = 0;
+            // 
+            // qrCodePictureBox
+            // 
+            this.qrCodePictureBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.qrCodePictureBox.Location = new System.Drawing.Point(3, 3);
+            this.qrCodePictureBox.Name = "qrCodePictureBox";
+            this.qrCodePictureBox.Size = new System.Drawing.Size(419, 377);
+            this.qrCodePictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.qrCodePictureBox.TabIndex = 0;
+            this.qrCodePictureBox.TabStop = false;
+            // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.ColumnCount = 2;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.Controls.Add(this.label1, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.qrCodeEmbedText, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.generateQRCodeBtn, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.saveQRCode, 1, 1);
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 386);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 2;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(419, 90);
+            this.tableLayoutPanel1.TabIndex = 1;
+            // 
+            // label1
+            // 
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.label1.Location = new System.Drawing.Point(70, 10);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(136, 24);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Embed Text :";
+            // 
+            // qrCodeEmbedText
+            // 
+            this.qrCodeEmbedText.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.qrCodeEmbedText.Location = new System.Drawing.Point(212, 12);
+            this.qrCodeEmbedText.Name = "qrCodeEmbedText";
+            this.qrCodeEmbedText.Size = new System.Drawing.Size(204, 20);
+            this.qrCodeEmbedText.TabIndex = 1;
+            this.qrCodeEmbedText.Text = "y";
+            // 
+            // generateQRCodeBtn
+            // 
+            this.generateQRCodeBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.generateQRCodeBtn.Location = new System.Drawing.Point(3, 56);
+            this.generateQRCodeBtn.Name = "generateQRCodeBtn";
+            this.generateQRCodeBtn.Size = new System.Drawing.Size(203, 23);
+            this.generateQRCodeBtn.TabIndex = 2;
+            this.generateQRCodeBtn.Text = "Generate QRCode";
+            this.generateQRCodeBtn.UseVisualStyleBackColor = true;
+            this.generateQRCodeBtn.Click += new System.EventHandler(this.generateQRCodeBtn_Click);
+            // 
+            // saveQRCode
+            // 
+            this.saveQRCode.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.saveQRCode.Location = new System.Drawing.Point(212, 56);
+            this.saveQRCode.Name = "saveQRCode";
+            this.saveQRCode.Size = new System.Drawing.Size(204, 23);
+            this.saveQRCode.TabIndex = 3;
+            this.saveQRCode.Text = "Save To File (.jpg)";
+            this.saveQRCode.UseVisualStyleBackColor = true;
+            this.saveQRCode.Click += new System.EventHandler(this.saveQRCode_Click);
+            // 
+            // saveImageFileDialog
+            // 
+            this.saveImageFileDialog.Filter = "Jpg Image|*.jpg";
+            this.saveImageFileDialog.Title = "Save QRCode Image";
+            // 
             // mainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -193,10 +337,17 @@
             this.Text = "Form1";
             this.mainTabControl.ResumeLayout(false);
             this.stillImageTabPage.ResumeLayout(false);
+            this.generatorAndSettingTabPage.ResumeLayout(false);
             this.mainStillImageTableLayoutPanel.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.stillImagePictureBox)).EndInit();
             this.groupBox1.ResumeLayout(false);
+            this.mainGeneratorTableLayoutPanel.ResumeLayout(false);
+            this.qrCodeGeneratorGroupBox.ResumeLayout(false);
+            this.qrCodePictureTableLayoutPanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.qrCodePictureBox)).EndInit();
+            this.tableLayoutPanel1.ResumeLayout(false);
+            this.tableLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -216,6 +367,17 @@
         private System.Windows.Forms.TabPage liveCameraTabPage;
         private System.Windows.Forms.TabPage generatorAndSettingTabPage;
         private System.Windows.Forms.OpenFileDialog openImageFileDialog;
+        private System.Windows.Forms.TableLayoutPanel mainGeneratorTableLayoutPanel;
+        private System.Windows.Forms.GroupBox settingGroupBox;
+        private System.Windows.Forms.GroupBox qrCodeGeneratorGroupBox;
+        private System.Windows.Forms.TableLayoutPanel qrCodePictureTableLayoutPanel;
+        private System.Windows.Forms.PictureBox qrCodePictureBox;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox qrCodeEmbedText;
+        private System.Windows.Forms.Button generateQRCodeBtn;
+        private System.Windows.Forms.Button saveQRCode;
+        private System.Windows.Forms.SaveFileDialog saveImageFileDialog;
     }
 }
 

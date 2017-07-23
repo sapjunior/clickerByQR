@@ -7,16 +7,18 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using Emgu.CV;
-using Emgu.CV.Structure;
+using QRCoder;
 using ZXing.Multi.QrCode;
 using ZXing;
 using ZXing.Common;
+using System.IO;
 
 namespace clickerByQR
 {
     public partial class mainForm : Form
     {
         QRCodeMultiReader qrCodesReader = new QRCodeMultiReader();
+        QRCodeGenerator qrGenerator = new QRCodeGenerator();
         IDictionary<DecodeHintType, object> qrCodeReaderParams;
         class interestedQRString
         {
@@ -37,7 +39,10 @@ namespace clickerByQR
 
             Result[] tempResult = qrCodesReader.decodeMultiple(binaryBitmap, qrCodeReaderParams);
             if (tempResult != null)
+            {
+                MessageBox.Show("Found" + tempResult.Length.ToString() + " QRCode");
                 return tempResult.ToList<Result>();
+            }
             else
                 return new List<Result>();
         }
@@ -52,6 +57,14 @@ namespace clickerByQR
                 var listViewItem = new ListViewItem(classCountItem);
                 targetUpdateListView.Items.Add(listViewItem);
             }
+
+            // Temporary Usage
+            for(int i = 0; i < qrCodeRecognizeResults.Count; i++)
+            {
+                string[] classCountItem = { qrCodeRecognizeResults[i].Text, "***" };
+                var listViewItem = new ListViewItem(classCountItem);
+                targetUpdateListView.Items.Add(listViewItem);
+            }
         }
         private void loadStillImage_Click(object sender, EventArgs e)
         {
@@ -60,7 +73,7 @@ namespace clickerByQR
                 try
                 {
                     Mat inputImage = new Mat(openImageFileDialog.FileName);
-                    CvInvoke.Resize(inputImage, inputImage, new Size(), 2, 2, Emgu.CV.CvEnum.Inter.Lanczos4);
+                    CvInvoke.Resize(inputImage, inputImage, new Size(),3, 3, Emgu.CV.CvEnum.Inter.Lanczos4);
                     updateDisplayListView(stillImageClassCountListView, detectAndRecognieQRCode(inputImage));
                     stillImagePictureBox.Image = inputImage.Bitmap;
                 }
@@ -69,6 +82,38 @@ namespace clickerByQR
                     MessageBox.Show("Invalid Image File", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
 
+            }
+        }
+
+        private void generateQRCodeBtn_Click(object sender, EventArgs e)
+        {
+            if (qrCodeEmbedText.Text.Length > 0)
+            {
+                QRCodeData qrCodeData = qrGenerator.CreateQrCode(qrCodeEmbedText.Text, QRCodeGenerator.ECCLevel.M);
+                QRCode qrCode = new QRCode(qrCodeData);
+                Bitmap qrCodeImage = qrCode.GetGraphic(40);
+                qrCodePictureBox.Image = qrCodeImage;
+            }
+            else
+            {
+                MessageBox.Show("You must input some text in embed textbox","Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
+            }
+        }
+
+        private void saveQRCode_Click(object sender, EventArgs e)
+        {
+            if (qrCodeEmbedText.Text.Length > 0)
+            {
+                QRCodeData qrCodeData = qrGenerator.CreateQrCode(qrCodeEmbedText.Text, QRCodeGenerator.ECCLevel.M);
+                QRCode qrCode = new QRCode(qrCodeData);
+                Bitmap qrCodeImage = qrCode.GetGraphic(40);
+               
+                if (saveImageFileDialog.ShowDialog() == DialogResult.OK)
+                    qrCodeImage.Save(saveImageFileDialog.FileName);
+            }
+            else
+            {
+                MessageBox.Show("You must input some text in embed textbox", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }
